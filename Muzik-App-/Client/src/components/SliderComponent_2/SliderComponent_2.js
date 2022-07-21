@@ -10,17 +10,15 @@ import Login from '../../img/login.PNG'
 export default function SliderComponent_2() {
   const [SongData, setSongData] = React.useState([]);
 
+
   React.useEffect(() => {
-    //const apikey='37fa14ba27d26e5cefaed6b5832eb835';
-    //let urllastfm=`http://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=${apikey}&format=json`
-    let myapiurl="http://localhost:8000/api/topArtists"
-    fetch(myapiurl)
+    
+    fetch("http://localhost:8000/api/GetTopArtist")
       .then(res => res.json())
       .then(data => {
-        
-        setSongData(data?.artists?.artist);
+        setSongData(data.tracks);
+        //console.log(data.tracks);
       }
-
       )
   }, []);
 
@@ -30,23 +28,28 @@ export default function SliderComponent_2() {
     <div className='SliderComponent_2'>
         <h2 className='SliderComponentHeading SongComponentHeading'>Top Artists</h2>
       <div className='Sub-SliderComponent'>
-        {SongData.map((Song) =>
-          <div className="SliderComponent_2_card">
+        {SongData?.map((track) =>
+          <div className="SliderComponent_2_card" key={track.id}>
+            <i class="fa-solid fa-heart float-end text-end"></i>
           <Card className='cards-layout'>
+          
           <CardActionArea>
-            <CardMedia
-            //{`"${Song.image[0]['#text']}"`}
-              component={"img"}
-              height="140"
-              image={Login}
-              alt="green iguana"
-            />
+          
+            <img src={track.album.images[1].url} id="image"  alt="green iguana" />
+           
+            
+
             <CardContent >
               <Typography gutterBottom variant="h5" component="div">
-                {Song?.name}
+               
+              {track.name}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {Song?.listeners}  
+              {track.artists.name}
+              <audio controls>
+                <source src={track.preview_url} type="audio/mpeg" />
+              </audio>
+
               </Typography>
             </CardContent>
           </CardActionArea>

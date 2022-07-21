@@ -11,7 +11,7 @@ export default function SliderComponent_3() {
   const [SongData, setSongData] = React.useState([]);
 
   React.useEffect(() => {
-    const apikey='37fa14ba27d26e5cefaed6b5832eb835';
+    
     let urllastfm=`https://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=India&api_key=37fa14ba27d26e5cefaed6b5832eb835&format=json`
     //let myapiurl="http://localhost:8000/api/topArtists"
     fetch(urllastfm)
