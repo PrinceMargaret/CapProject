@@ -1,21 +1,39 @@
 import React from "react";
 import "./SliderComponent_5.css";
 import Card from "@mui/material/Card";
+
+import { useState } from "react";
+import { Modal } from "@mantine/core";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Login from "../../img/login.PNG";
+import AddToPlaylistModal from "../AddToPlaylistModal/AddToPlaylistModal";
 
 export default function SliderComponent_5() {
+  const [opened, setOpened] = useState(false);
   return (
     <div className="SliderComponent_5">
+      <Modal
+        className="CreatePlaylistDiv"
+        opened={opened}
+        onClose={() => setOpened(false)}
+        title="Add To Playlist"
+      >
+        <AddToPlaylistModal />
+      </Modal>
       <h2 className="SliderComponentHeading SongComponentHeading">
         Weekly Charts
       </h2>
       <div className="Sub-SliderComponent">
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -37,11 +55,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -63,11 +92,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -89,11 +129,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -115,11 +166,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -141,11 +203,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -167,11 +240,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -193,11 +277,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -219,11 +314,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -245,11 +351,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -271,11 +388,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -297,11 +425,22 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
 
         <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{
+            backgroundColor: "#485461",
+            backgroundImage:
+              "linear-gradient(315deg, #485461 0%, #28313b 74%)",
+          }}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -323,6 +462,12 @@ export default function SliderComponent_5() {
                 </div>
               </CardContent>
             </CardActionArea>
+            <i
+              class="slider-component2_heart fa-solid fa-plus float-end text-end"
+              onClick={() => setOpened(true)}
+            ></i>
+
+            <i class="slider-component2_heart fa-regular fa-heart float-end text-end"></i>
           </Card>
         </div>
       </div>

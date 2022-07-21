@@ -35,7 +35,9 @@ export default function SliderComponent() {
       <h2 className='SliderComponentHeading SongComponentHeading'>Trending Songs</h2>
       <div className='Sub-SliderComponent'>
         {SongData.map((Song) => <div className="card">
-      <Card >
+      <Card 
+      sx={{backgroundColor: "#485461",
+      backgroundImage: "linear-gradient(315deg, #485461 0%, #28313b 74%)", color: "white"}}>
       <CardActionArea>
         <CardMedia
           //component={`"${Song.image[0]['#text']}"`}
@@ -48,7 +50,8 @@ export default function SliderComponent() {
           <Typography gutterBottom variant="h5" component="div">
             {Song.name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="body2" color="text.secondary"
+          sx={{color: "lightgrey"}}>
             {Song.listeners}
           </Typography>
         </CardContent>

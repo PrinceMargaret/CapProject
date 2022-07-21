@@ -42,7 +42,7 @@ fetch('https://muzixplaylist.herokuapp.com/api/getPlaylist', {
       </div>
       <div className=" NavIcon LikedSongs">
         <h4>
-          <i className="navTop-icon fa-solid fa-heart"></i>Liked Songs
+          <i className="navTop-icon fa-hart fa-solid fa-heart"></i>Liked Songs
         </h4>
       </div>
       <div className="LastLine"></div>

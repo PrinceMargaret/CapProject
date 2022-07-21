@@ -1,13 +1,18 @@
 import React from "react";
 import "./SliderComponent_3.css";
+import { useState } from "react";
+import { Modal} from "@mantine/core";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Login from "../../img/login.PNG";
+import AddToPlaylistModal from "../AddToPlaylistModal/AddToPlaylistModal";
 
 export default function SliderComponent_3() {
+  const [opened, setOpened] = useState(false);
+
   const [SongData, setSongData] = React.useState([]);
 
   React.useEffect(() => {
@@ -23,6 +28,16 @@ export default function SliderComponent_3() {
   }, []);
   return (
     <div className="SliderComponent_3">
+
+      <Modal
+        className="CreatePlaylistDiv"
+        opened={opened}
+        onClose={() => setOpened(false)}
+        title=  "Add To Playlist"
+      >
+        <AddToPlaylistModal/>
+      </Modal>
+
       <h2 className="SliderComponentHeading SongComponentHeading">
         Top Tracks
       </h2>
@@ -31,7 +46,9 @@ export default function SliderComponent_3() {
 
         {SongData.map(Song => (
           <div className="SliderComponent_2_card">
-          <Card className="cards-layout">
+          <Card className="cards-layout"
+          sx={{backgroundColor: "#485461",
+          backgroundImage: "linear-gradient(315deg, #485461 0%, #28313b 74%)"}}>
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -48,6 +65,10 @@ export default function SliderComponent_3() {
                 </Typography>
               </CardContent>
             </CardActionArea>
+            <i class="slider-component2_heart fa-solid fa-plus float-end text-end" onClick={() => setOpened(true)}></i>
+
+          <i class="slider-component2_heart fa-regular fa-heart float-end text-end" ></i>
+          
           </Card>
         </div>)
         )}

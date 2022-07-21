@@ -6,98 +6,97 @@ import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 export default function SearchBarPage(SongName) {
- //Resultstate
-  const [result, setResult] = React.useState([]); 
-  console.log(SongName)
-  console.log(result)
-function Fetchdata() {
-    fetch(`https://ws.audioscrobbler.com/2.0/?method=track.search&track=${SongName}&api_key=37fa14ba27d26e5cefaed6b5832eb835&format=json`)
-    .then(res => res.json())
-    .then(data => {
-      setResult(data.results.trackmatches.track);
-    }
+  //Resultstate
+  const [result, setResult] = React.useState([]);
+  console.log(SongName);
+  console.log(result);
+  function Fetchdata() {
+    fetch(
+      `https://ws.audioscrobbler.com/2.0/?method=track.search&track=${SongName}&api_key=37fa14ba27d26e5cefaed6b5832eb835&format=json`
     )
+      .then((res) => res.json())
+      .then((data) => {
+        setResult(data.results.trackmatches.track);
+      });
   }
-
-
-
-
-
 
   return (
     <div className="SearchBarPage">
       <div className="searchBarDiv">
         <div className="search-bar">
-        <i class="fa-solid fa-magnifying-glass float-end" onClick={Fetchdata}></i>
+          <i
+            class="fa-solid fa-magnifying-glass float-end"
+            onClick={Fetchdata}
+          ></i>
           <input
-            
             type="text"
             placeholder="Search"
             name="SearchBox"
             id="search"
           />
-          <i class="fa-solid fa-magnifying-glass float-end" onClick={Fetchdata}></i>
         </div>
-        
       </div>
-      
+
       <div className="searchedItemDiv">
         <h3>Your Search Results</h3>
       </div>
       <div className="AllSearchedSongs">
-        {
-          result.map(item => (<div className="SongsList-Playlist">
-          <List
-            sx={{ width: "98%", background: "linear-gradient(315deg, #b1bfd8 0%, #6782b4 74%)", borderRadius: "10px"}}
-          >
-            <ListItem className="list" alignItems="flex-start">
-              <ListItemAvatar>
-                <Avatar
-                  alt="Save Your Tears"
-                  src="/static/images/avatar/1.jpg"
+        {result.map((item) => (
+          <div className="SongsList-Playlist">
+            <List
+              sx={{
+                width: "98%",
+                background: "linear-gradient(315deg, #b1bfd8 0%, #6782b4 74%)",
+                borderRadius: "10px",
+              }}
+            >
+              <ListItem className="list" alignItems="flex-start">
+                <ListItemAvatar>
+                  <Avatar
+                    alt="Save Your Tears"
+                    src="/static/images/avatar/1.jpg"
+                  />
+                </ListItemAvatar>
+                <ListItemText
+                  secondary={
+                    <React.Fragment>
+                      <Typography
+                        sx={{ display: "inline" }}
+                        component="span"
+                        variant="body2"
+                        color="text.primary"
+                      >
+                        {item.artist}
+                        <audio controls id="auido">
+                          <source src={item.url} type="audio/mpeg" />
+                        </audio>
+                      </Typography>
+                    </React.Fragment>
+                  }
                 />
-              </ListItemAvatar>
-              <ListItemText
-                
-                secondary={
-                  <React.Fragment>
-                    <Typography
-                      sx={{ display: "inline" }}
-                      component="span"
-                      variant="body2"
-                      color="text.primary"
-                    >
-                     {item.artist}
-                     <audio controls id="auido">
-                      <source src={item.url} type="audio/mpeg" />
-                    </audio>
-
-                    </Typography>      
-                </React.Fragment>
-                }
-              />
-              <FavoriteBorderIcon
-              sx={{ marginRight: "20px", marginTop: "15px"}}/>
-              <p style={{marginRight: "20px", marginTop: "15px"}}> 2:55 </p>
-              <MoreHorizIcon sx={{ marginRight: "20px", marginTop: "15px"}}/>
-              
-            </ListItem>
-            
-
-          </List>
-          
-        </div>
-        ))
-        }
+                <FavoriteBorderIcon
+                  sx={{ marginRight: "20px", marginTop: "15px" }}
+                />
+                <p style={{ marginRight: "20px", marginTop: "15px" }}> 2:55 </p>
+                <MoreHorizIcon
+                  sx={{ marginRight: "20px", marginTop: "15px" }}
+                />
+              </ListItem>
+            </List>
+          </div>
+        ))}
         <div className="SongsList-Playlist">
           <List
-            sx={{ width: "98%", background: "linear-gradient(315deg, #b1bfd8 0%, #6782b4 74%)", borderRadius: "10px"}}
+            sx={{
+              width: "98%",
+              background: "linear-gradient(315deg, #b1bfd8 0%, #6782b4 74%)",
+              borderRadius: "10px",
+            }}
           >
             <ListItem className="list" alignItems="flex-start">
               <ListItemAvatar>
@@ -117,29 +116,33 @@ function Fetchdata() {
                       color="text.primary"
                     >
                       Weeknd
-                    </Typography>      
-                </React.Fragment>
+                    </Typography>
+                  </React.Fragment>
                 }
               />
               <FavoriteBorderIcon
-              sx={{ marginRight: "20px", marginTop: "15px"}}/>
-              <p style={{marginRight: "20px", marginTop: "15px"}}> 2:55 </p>
-              <MoreHorizIcon sx={{ marginRight: "20px", marginTop: "15px"}}/>
-              
+                sx={{ marginRight: "20px", marginTop: "15px" }}
+              />
+              <p style={{ marginRight: "20px", marginTop: "15px" }}> 2:55 </p>
+              <MoreHorizIcon sx={{ marginRight: "20px", marginTop: "15px" }} />
             </ListItem>
-            
-
           </List>
-          
         </div>
 
         <div className="SongsList-Playlist">
           <List
-            sx={{ width: "98%", background: "linear-gradient(315deg, #b1bfd8 0%, #6782b4 74%)" , borderRadius: "10px"}}
+            sx={{
+              width: "98%",
+              background: "linear-gradient(315deg, #b1bfd8 0%, #6782b4 74%)",
+              borderRadius: "10px",
+            }}
           >
             <ListItem alignItems="flex-start">
               <ListItemAvatar>
-                <Avatar alt="Blinding Lights" src="/static/images/avatar/1.jpg" />
+                <Avatar
+                  alt="Blinding Lights"
+                  src="/static/images/avatar/1.jpg"
+                />
               </ListItemAvatar>
               <ListItemText
                 primary="Blinding Lights"
@@ -157,9 +160,10 @@ function Fetchdata() {
                 }
               />
               <FavoriteIcon
-              sx={{ marginRight: "20px", marginTop: "15px", color: "red"}}/>
-              <p style={{marginRight: "20px", marginTop: "15px"}}> 3:12 </p>
-              <MoreHorizIcon sx={{ marginRight: "20px", marginTop: "15px"}}/>
+                sx={{ marginRight: "20px", marginTop: "15px", color: "red" }}
+              />
+              <p style={{ marginRight: "20px", marginTop: "15px" }}> 3:12 </p>
+              <MoreHorizIcon sx={{ marginRight: "20px", marginTop: "15px" }} />
             </ListItem>
           </List>
         </div>
