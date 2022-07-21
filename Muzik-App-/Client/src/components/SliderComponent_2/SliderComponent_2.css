@@ -38,3 +38,13 @@
     height: 100%;
     text-align: center;
 }
+
+.slider-component2_heart{
+    font-size: 20px;
+    position: relative;
+    float: right;
+    right: 10px;
+    bottom: 10px;
+    margin-left: 15px ;
+    color: rgb(118, 116, 116);
+}
