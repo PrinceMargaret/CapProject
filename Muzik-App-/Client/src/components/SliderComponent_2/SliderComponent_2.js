@@ -13,13 +13,14 @@ import AddToPlaylistModal from '../AddToPlaylistModal/AddToPlaylistModal';
 export default function SliderComponent_2() {
 
   const [opened, setOpened] = useState(false);
-
+   
   const [SongData, setSongData] = React.useState([]);
+  const [Id, setId] = useState('')
 
 
   React.useEffect(() => {
     
-    fetch("http://localhost:8000/api/GetTopArtist")
+    fetch("https://muzixcloud.herokuapp.com/api/GetTopArtist")
       .then(res => res.json())
       .then(data => {
         setSongData(data.tracks);
@@ -38,7 +39,7 @@ export default function SliderComponent_2() {
         onClose={() => setOpened(false)}
         title=  "Create PlayList"
       >
-        <AddToPlaylistModal/>
+        <AddToPlaylistModal SongList={SongData} Id={Id}/>
       </Modal>
         <h2 className='SliderComponentHeading SongComponentHeading'>Top Artists</h2>
       <div className='Sub-SliderComponent'>
@@ -71,7 +72,7 @@ export default function SliderComponent_2() {
           </CardActionArea>
           <i class="slider-component2_heart fa-solid fa-plus float-end text-end"></i>
 
-          <i class="slider-component2_heart fa-regular fa-heart float-end text-end" onClick={() => setOpened(true)}></i>
+          <i class="slider-component2_heart fa-regular fa-heart float-end text-end" onClick={() => {setOpened(true);setId(track.id)}} ></i>
           
           
         </Card>
