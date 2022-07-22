@@ -4,6 +4,8 @@ import Login from './pages/Login/Login'
 import Home from './pages/Home/Home';
 import Search from './pages/Search/Search';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LikedSongs from './pages/LikedSongs/LikedSongs';
+import Library from './pages/Library/Library';
 
 function App() {
   return (
@@ -13,9 +15,12 @@ function App() {
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/home" element={<Home />} />
-      <Route path="search" element={<Search/>} />
+      <Route path="/search" element={<Search/>} />
+      <Route path="/liked" element={<LikedSongs/>} />
+      <Route path="/library" element={<Library/>} />
       </Routes>
       </BrowserRouter>
+      
       
       
       

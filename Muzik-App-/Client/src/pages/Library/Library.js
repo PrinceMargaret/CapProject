@@ -1,18 +1,18 @@
 import React from 'react'
-import './Search.css'
+import LibraryPage from '../../components/LibraryPage/LibraryPage'
 import MusicControl from '../../components/MusicControl/MusicControl'
 import Navbar from '../../components/Navbar/Navbar'
-import SearchPage from '../../components/SearchPage/SearchPage'
+import './Library.css'
 
-export default function Search() {
+export default function Library() {
   return (
-    <div className='Search'>
-        <Navbar/>
-        <SearchPage/>
+    <div className='Library'>
+      <Navbar/>
+      <LibraryPage/>
         <footer>
           <MusicControl/>
         </footer>
     </div>
+      
   )
 }
-

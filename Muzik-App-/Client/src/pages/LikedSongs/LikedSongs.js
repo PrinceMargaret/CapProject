@@ -1,18 +1,17 @@
 import React from 'react'
-import './Search.css'
+import './LikedSongs.css'
 import MusicControl from '../../components/MusicControl/MusicControl'
 import Navbar from '../../components/Navbar/Navbar'
-import SearchPage from '../../components/SearchPage/SearchPage'
+import LikedPage from '../../components/LikedPage/LikedPage'
 
-export default function Search() {
+export default function LikedSongs() {
   return (
-    <div className='Search'>
+    <div className='LikedSongs'>
         <Navbar/>
-        <SearchPage/>
+        <LikedPage/>
         <footer>
           <MusicControl/>
         </footer>
     </div>
   )
 }
-

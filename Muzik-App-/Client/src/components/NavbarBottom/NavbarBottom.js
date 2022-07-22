@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Modal} from "@mantine/core";
 import AddIcon from '@mui/icons-material/Add';
 import CreatePlayListModal from "../CreatePlayListModal/CreatePlayListModal";
+import { Link, Outlet } from "react-router-dom";
 
 export default function NavbarBottom() {
   const [opened, setOpened] = useState(false);
@@ -42,7 +43,7 @@ fetch('https://muzixplaylist.herokuapp.com/api/getPlaylist', {
       </div>
       <div className=" NavIcon LikedSongs">
         <h4>
-          <i className="navTop-icon fa-hart fa-solid fa-heart"></i>Liked Songs
+          <Link to="/liked" style={{textDecoration: "none", color: "white" }}><i className="navTop-icon fa-hart fa-solid fa-heart"></i>Liked Songs</Link>
         </h4>
       </div>
       <div className="LastLine"></div>
@@ -52,8 +53,9 @@ fetch('https://muzixplaylist.herokuapp.com/api/getPlaylist', {
         <div className="playlist-list">
           <h4>{playlist.playlistName}</h4>
         </div>
-        
+        <Outlet />
       </div>
+      
       ))}
     </div>
   );
