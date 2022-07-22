@@ -1,7 +1,33 @@
 const apikey='37fa14ba27d26e5cefaed6b5832eb835';
-const spotifyToken="BQBTs-2mfJXbibNp0Rfr7EQsICecZrNqhMIE5RD2j792PWnlq0Lfwvc79LE-Cy5wcO7mDB1s7R5ug3Rsk5cZGhjoMG4xdSNRk0LuGqz-nTMLCFHJAg0"
+var spotifyToken="BQDrjwpVSmxI9Rxgl--kfNbsJVJVW2CXb87aCDSn0PEsfaP2LJd1Pby0X_4xuq57jxarOv-MhWEzqrYO7NSTz6SQsDqEpm2SevHU_nRgV68BQmReZFHg6K5lgVW6rsM3Z6gmkZ6wK8N6dLGZXindYgcvOtH86hlT2VXhzdV3IJmMv35cgNZHMuoWM3tRd9eWDQ0"
 import fetch from "node-fetch";
- 
+import request from 'request';
+
+
+var client_id = '41d54e390d664bdf83024b00eafa887c';
+var client_secret = 'b1e33168f8e7402ab76e49b08f70740d';
+
+var authOptions = {
+  url: 'https://accounts.spotify.com/api/token',
+  headers: {
+    'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64'))
+  },
+  form: {
+    grant_type: 'client_credentials'
+  },
+  json: true
+};
+
+request.post(authOptions, function(error, response, body) {
+  if (!error && response.statusCode === 200) {
+    var token = body.access_token;
+    spotifyToken=token;
+    console.log(token);
+  }
+});
+
+
+//console.log(spotifyToken);
 // Search Song by name
  function SearchTrack(req,res){
     const {track}=req.body;
@@ -139,7 +165,9 @@ function WeeklyChartList(req,res){
 //fetch Top Artist from spotify by access token bearer token Authration bearer token
 function GetTopArtist(req,res){
     
-    const spotifyToken="BQBIKZn9-wyaDWsLUs9lYxwr1jeHgWGMOipbM0hGYIP4HWhqd-GyjS2VxY5PoxCWDW-fJuFrkjAG2Aa4BhKVcWAI-GTxmVfRDajGztLodL5hOdJiJdc"
+   
+  
+    //console.log(token);
     const url=`https://api.spotify.com/v1/tracks?ids=7ouMYWpwJ422jRcDASZB7P%2C4VqPOruhp5EdPBeR92t6lQ%2C2takcwOaAZWiXQijPHIx7B`;
     fetch(url,{
         method:'GET',
@@ -158,13 +186,39 @@ function GetTopArtist(req,res){
     )
 }
 
+function getTrack(req,res){
+    fetch("https://api.spotify.com/v1/tracks?ids=7ouMYWpwJ422jRcDASZB7P%2C4VqPOruhp5EdPBeR92t6lQ%2C2takcwOaAZWiXQijPHIx7B",{
+        method:'GET',
+        headers:{
+            'Authorization':`Bearer ${spotifyToken}`
+        }
+
+
+
+
+
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        res.send(data);
+    }
+    ).catch(err=>{
+        console.log(err);
+        res.send(err);
+    }
+    )
+}
+
+
+
+
     
  
 
 
 
 
-export {SearchTrack, TopArtists, TopTracks, TopAlbums, gettoptracksByTag,  ArtistSearch, GetSimilarTags, WeeklyChartList, GetTopArtist};
+export {SearchTrack, TopArtists, TopTracks, TopAlbums, gettoptracksByTag,  ArtistSearch, GetSimilarTags, WeeklyChartList, GetTopArtist, getTrack};
 
 
 

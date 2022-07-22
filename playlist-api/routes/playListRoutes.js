@@ -5,7 +5,7 @@ const { getPlayLists, AddSongToPlayList,createPlaylist } = require('../controlle
 
 router.get('/getPlaylist', getPlayLists);
 router.post('/createPlaylist',createPlaylist );
-router.post('/addSongToPlaylist/:playlistId/', AddSongToPlayList);
+router.post('/addSongToPlaylist/:playlistId', AddSongToPlayList);
 
 
 
